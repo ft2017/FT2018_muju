@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+<table class="gridtable">
+	<tr><th> </th><th>模具维修工单</th><th>AMRT300日期</th><th>维修人员</th><th>资源编号</th><th>资源名称</th><th>模具预计完成日</th><th>项次</th><th>报修原因</th></tr>
+
+  {% for muju in latest_muju_list %}
+     <tr><th>{{muju.id}}</th><td><a href="{% url 'Muju_detail' muju.id %}">{{ muju.muju_wo }}</a></td>
+      <td>{{ muju.muju_date | date:'Y-m-d ' }}</td><td>{{muju.muju_empe}}</td><td>{{muju.muju_source_code}}</td><td>{{muju.muju_source_code_name}}</td><td>{{muju.muju_plan_date| date:'Y-m-d '}}</td><td>{{muju.muju_seq}}</td><td>{{muju.muju_Reason}}</td>
+  {% endfor %}
+</table>
+{% endblock content %}
